@@ -1,0 +1,110 @@
+# ============================================================================
+# REDROB HACKATHON - SUBMISSION METADATA
+# ============================================================================
+# Team: Code Fusion
+# This file contains all metadata required for the hackathon submission.
+# It maps to the information submitted via the hackathon portal.
+# Stage 3 review uses this file to verify portal metadata.
+# ============================================================================
+team_name: "Code Fusion"
+
+primary_contact:
+  name: "Yasvanth RD"
+  email: "yasvanth178@gmail.com"
+  phone: "+91-87546 41911"
+
+team_members:
+  - name: "Yasvanth RD"
+    email: "yasvanth178@gmail.com"
+    role: "Team Lead"
+
+  - name: "Revathi S"
+    email: "revathis19112006@gmail.com"
+    role: "ML Engineer (Offline Pipeline)"
+
+  - name: "Rattish Kumar SS"
+    email: "rattishkumars@gmail.com"
+    role: "ML Engineer (Online Ranking Pipeline)"
+
+# GitHub repository containing the complete source code, preprocessed cache files,
+# and documentation. Judges can clone this repo for full reproduction at Stage 3.
+github_repo: "https://github.com/Revathi2006/redrob-ai-ranker"
+
+# Google Colab sandbox link for quick demo verification with small candidate samples.
+# Judges can upload rank.py and a sample candidates.jsonl to test the pipeline.
+# The sandbox uses a lightweight model for fast CPU-only execution within 2 minutes.
+sandbox_link: "https://colab.research.google.com/drive/1921S3M6IlsciRI9vShxmOV8JplaUsuc2?usp=sharing"
+
+# Single command to reproduce results from candidates.jsonl.
+# With preprocessed cache present, completes in ~10 seconds on CPU.
+reproduce_command: "python rank.py"
+
+# Development and testing environment used by the team.
+# GPU was used only for one-time offline preprocessing (FP16 embeddings).
+# Online ranking runs entirely on CPU without network access.
+compute:
+  platform: "Local Windows Laptop"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.10.11"
+  os: "Windows 11 Pro"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: true
+  pre_computation_time_minutes: 29
+
+# AI tools used as development assistants only.
+# No AI tools are used during preprocessing or inference.
+# All design decisions and implementation were done by the team.
+ai_tools_used:
+  - "ChatGPT"
+  - "DeepSeek"
+
+ai_usage_summary: |
+  ChatGPT and DeepSeek were used during development for architectural
+  discussions, implementation guidance, debugging, documentation,
+  code review, and general software engineering assistance. These
+  tools were used solely as development assistants. The retrieval
+  pipeline, feature engineering, ranking methodology, preprocessing,
+  testing, and final implementation were designed, integrated, and
+  validated by the team. No external AI services are used during
+  preprocessing or inference, and the complete ranking pipeline runs
+  offline after preprocessing.
+
+# Summary of the ranking approach for judges.
+# Covers the hybrid architecture, preprocessing strategy, and all
+# key components including 23 Redrob signals and skill ontology.
+methodology_summary: |
+  Our solution is a hybrid AI candidate ranking system that combines
+  semantic retrieval using BGE-M3 embeddings with FAISS HNSW, keyword
+  retrieval using BM25, engineered candidate features, and all 23
+  Redrob behavioral signals for comprehensive candidate evaluation.
+
+  During one-time offline preprocessing, candidate embeddings are
+  generated, FAISS and BM25 indexes are built, candidate features are
+  extracted, percentile normalization is applied, and a skill ontology
+  is created. During ranking, the job description is embedded, FAISS
+  retrieves the most relevant candidates, BM25 reranks the shortlist,
+  and adaptive weighting combines semantic similarity, keyword
+  relevance, engineered features, and behavioral signals.
+
+  The system incorporates ontology-based skill matching, experience
+  alignment, career authenticity scoring, retrieval specialization,
+  AI experience analysis, career progression analysis, honeypot
+  detection, and explainable reasoning generation. All 23 Redrob
+  behavioral signals are incorporated into the scoring pipeline,
+  covering recruiter engagement, pipeline conversion, visibility,
+  responsiveness, professional network strength, candidate activity,
+  job fit, and administrative readiness. GPU is used only for the
+  one-time preprocessing stage, while the online ranking pipeline
+  runs entirely on CPU without network access and produces the final
+  submission.csv containing the Top-100 ranked candidates with
+  human-readable reasoning.
+
+# All declarations confirmed by the team.
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true

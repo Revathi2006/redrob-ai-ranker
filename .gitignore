@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+eggs/
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# Model cache
+.cache/
+huggingface/
+*.safetensors
+
+# Submission validator
+validate_submission.py
+
+# Output folder - exclude everything except CodeFusion.csv
+output/*
+!output/CodeFusion.csv

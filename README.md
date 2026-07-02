@@ -126,6 +126,15 @@ python rank.py
 
 ```
 
+### Note on Terminology
+
+In this documentation:
+- **Offline Preprocessing** refers to one-time computation done before ranking (embedding generation, index building). This is performed once with GPU acceleration.
+- **Online Ranking** refers to the real-time ranking pipeline that runs at query time using pre-computed artifacts. This runs on CPU only.
+
+Both stages operate entirely without internet connectivity. No external API calls, cloud services, or network access are required. The term "online" describes the runtime/live nature of the ranking phase, not internet connectivity.
+
+
 ---
 
 ## Final Scoring Formula

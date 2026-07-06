@@ -1,5 +1,5 @@
 
-# Redrob Hackathon – AI Candidate Ranking System
+# Redrob Hackathon – AI Candidate Ranking System.
 
 AI-powered candidate ranking system for Redrob Hackathon 2026.
 
